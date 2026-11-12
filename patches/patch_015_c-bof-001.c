@@ -1,0 +1,7 @@
+# Buffer overflow via unsafe string function
+# CWE-120 | Severity: CRITICAL
+# File: demos/http3/ossl-nghttp3-demo-server.c line 772
+
+**Risk:** strcpy/strcat/sprintf/gets without bounds checking. Stack or heap overflow leads to code execution.
+
+**Fix:** Use strncpy, strncat, snprintf with explicit size. Null-terminate manually. Prefer strlcpy/strlcat where available.
